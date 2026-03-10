@@ -269,7 +269,7 @@ function ProjectRow({ project, index }: { project: typeof PROJECTS[0]; index: nu
 }
 
 /** Footer block */
-function FooterBlock({ item, index }) {
+function FooterBlock({ item, index }: { item: typeof FOOTER_LINKS[0]; index: number }) {
   const [hovered, setHovered] = useState(false);
 
   return (
