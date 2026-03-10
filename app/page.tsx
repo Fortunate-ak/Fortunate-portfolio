@@ -121,13 +121,14 @@ function useScrollReveal() {
 }
 
 /** Magnetic hover effect wrapper */
-function Magnetic({ children, strength = 0.25 }) {
-  const ref = useRef(null);
+function Magnetic({ children, strength = 0.25 }: { children: React.ReactNode; strength?: number }) {
+  const ref = useRef<HTMLDivElement>(null);
   const [pos, setPos] = useState({ x: 0, y: 0 });
   const springX = useSpring(pos.x, { stiffness: 200, damping: 20 });
   const springY = useSpring(pos.y, { stiffness: 200, damping: 20 });
 
-  const handleMove = (e) => {
+  const handleMove = (e: React.MouseEvent) => {
+    if (!ref.current) return;
     const rect = ref.current.getBoundingClientRect();
     const cx = rect.left + rect.width / 2;
     const cy = rect.top + rect.height / 2;
@@ -205,7 +206,7 @@ function HighlightCard({ item, index }) {
 }
 
 /** Project row */
-function ProjectRow({ project, index }) {
+function ProjectRow({ project, index }: { project: typeof PROJECTS[0]; index: number }) {
   const [hovered, setHovered] = useState(false);
   const { ref, inView } = useScrollReveal();
 
