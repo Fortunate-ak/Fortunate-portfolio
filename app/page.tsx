@@ -149,7 +149,7 @@ function Magnetic({ children, strength = 0.25 }: { children: React.ReactNode; st
 }
 
 /** Highlight card that expands on hover */
-function HighlightCard({ item, index }) {
+function HighlightCard({ item, index }: { item: typeof HIGHLIGHTS[0]; index: number })  {
   const [hovered, setHovered] = useState(false);
 
   return (
