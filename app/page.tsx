@@ -113,11 +113,6 @@ const PROJECTS = [
   },
 ];
 
-const TESTIMONIALS = [
-  { text: "Their problem-solving skills and attention to detail make them an invaluable part of any development team.", author: "Tawananyasha Mukoriwo" },
-  { text: "Fortunate's ability to build intuitive user interfaces and complex back-end logic is truly impressive.", author: "Tadiwa Makoni" },
-  { text: "Their knowledge of Python and JavaScript helped streamline our project, saving both time and effort.", author: "Amos Tamuka Masasire" },
-];
 
 const FOOTER_LINKS = [
   { label: "GitHub", sub: "View my repositories", href: `https://github.com/${ME.github}`, icon: Github },
@@ -691,42 +686,7 @@ export default function Portfolio() {
         </div>
       </section>
 
-      {/* ══════════════════════════════════════════════════
-          PROJECTS
-      ══════════════════════════════════════════════════ */}
-      <section id="projects" className="py-28 px-6">
-        <div className="max-w-6xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            className="flex items-center gap-4 mb-14"
-          >
-            <span className="text-[10px] font-mono tracking-[0.35em] uppercase text-cyan-500/60">03 / Projects</span>
-            <div className="flex-1 h-px" style={{ background: "linear-gradient(90deg, rgba(6,182,212,0.3), transparent)" }} />
-            <a
-              href={`https://github.com/${ME.github}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-1.5 text-xs font-mono text-white/25 hover:text-cyan-400 transition-colors"
-            >
-              <Github size={12} />
-              All repos →
-            </a>
-          </motion.div>
-
-          <div>
-            {PROJECTS.map((p, i) => <ProjectRow key={p.num} project={p} index={i} />)}
-          </div>
-        </div>
-      </section>
-
-      {/* ══════════════════════════════════════════════════
-          TESTIMONIALS
-      ══════════════════════════════════════════════════ */}
-      <section className="py-24 px-6 border-y" style={{ borderColor: "rgba(139,92,246,0.1)", backgroundColor: "rgba(139,92,246,0.02)" }}>
-        <div className="max-w-6xl mx-auto">
-          <motion.div
+      {/* ══════════════════════════�v
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
@@ -770,7 +730,7 @@ export default function Portfolio() {
             viewport={{ once: true }}
             className="text-[10px] font-mono tracking-[0.35em] uppercase text-cyan-500/50 mb-8"
           >
-            05 / Let's Talk
+            04 / Let's Talk
           </motion.p>
           <motion.h2
             initial={{ opacity: 0, y: 30 }}
