@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState, useEffect, useRef } from "react";
 import {
@@ -17,7 +17,7 @@ import {
   ChevronRight, Circle,
 } from "lucide-react";
 
-//  PERSONAL DATA 
+// â”€â”€â”€ PERSONAL DATA â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 const ME = {
   name: "Fortunate T. Misihairahwi",
@@ -27,12 +27,13 @@ const ME = {
   titleShort: "Full-Stack Engineer",
   subtitle: "Building intelligent, high-performance applications that enhance user experiences.",
   location: "Harare, Zimbabwe",
+  coords: "17.8252Â° S, 31.0335Â° E Â· GMT+2",
   email: "fortunatetmisihairahwi@gmail.com",
   phone: "+263 781 334 685",
   github: "Fortunate-ak",
   linkedin: "fortunate-misihairahwi-875366381",
   status: "Open to opportunities",
-  bio: "Technology is more than just code a it's about solving real-world problems, improving lives, and pushing boundaries. I specialize in building efficient and scalable applications across various platforms, ensuring users get the best experience possible.",
+  bio: "Technology is more than just code â€” it's about solving real-world problems, improving lives, and pushing boundaries. I specialize in building efficient and scalable applications across various platforms, ensuring users get the best experience possible.",
   mission: "Translating complex problems into robust, elegant technical solutions. Currently focused on Full-Stack Web Development, AI/ML integration, and building impactful products.",
 };
 
@@ -43,7 +44,7 @@ const HIGHLIGHTS = [
     icon: BookOpen,
     color: "from-cyan-500 to-blue-500",
     colorSolid: "#06b6d4",
-    short: "B.Sc. Software Engineering · HIT Zimbabwe",
+    short: "B.Sc. Software Engineering Â· HIT Zimbabwe",
     long: "Pursuing a Bachelor of Science in Software Engineering at the Harare Institute of Technology (HIT), Zimbabwe. Expected graduation: October 2028. Building a strong foundation in algorithms, distributed systems, web development, and AI/ML fundamentals.",
   },
   {
@@ -52,7 +53,7 @@ const HIGHLIGHTS = [
     icon: Code2,
     color: "from-violet-500 to-purple-500",
     colorSolid: "#8b5cf6",
-    short: "Full-Stack Dev · Hackathons ",
+    short: "Full-Stack Dev Â· Hackathons Â· Tutoring",
     long: "Built full-stack solutions using Django REST Framework and React/Next.js. Participated in hackathons with rapid prototype development. Volunteered as a Programming Tutor, teaching fundamentals and debugging to junior developers.",
   },
   {
@@ -61,7 +62,7 @@ const HIGHLIGHTS = [
     icon: Users,
     color: "from-emerald-500 to-teal-500",
     colorSolid: "#10b981",
-    short: "Open source · Mentoring · Teamwork",
+    short: "Open source Â· Mentoring Â· Teamwork",
     long: "Strong believer in knowledge-sharing and teamwork. Contribute to open-source projects, mentor new developers, and thrive working alongside brilliant minds. Always eager to learn, collaborate, and grow together on ambitious projects.",
   },
 ];
@@ -119,13 +120,13 @@ const FOOTER_LINKS = [
   { label: "Contact Me", sub: "Let's work together", href: `mailto:${ME.email}`, icon: Mail },
 ];
 
-// âââ HELPERS ââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
+// â”€â”€â”€ HELPERS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
-function useScrollReveal(margin: UseInViewOptions["margin"] = "-80px") {
+function useScrollReveal(margin = "-80px") {
   const ref = useRef<HTMLDivElement>(null);
 
   // derive the correct options type from the hook itself
-  const opts: UseInViewOptions = { once: true, margin };
+  const opts = { once: true, margin };
 
   const inView = useInView(ref, opts);
   return { ref, inView };
@@ -157,13 +158,13 @@ function TypewriterText({ text, delay = 0 }: { text: string; delay?: number }) {
     <span ref={ref}>
       {displayed}
       {started && displayed.length < text.length && (
-        <span className="animate-pulse text-cyan-400">â</span>
+        <span className="animate-pulse text-cyan-400">â–‹</span>
       )}
     </span>
   );
 }
 
-// âââ COMPONENTS âââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
+// â”€â”€â”€ COMPONENTS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 function TerminalWindow({
   children,
@@ -319,7 +320,7 @@ function ProjectRow({ project, index }: { project: typeof PROJECTS[0]; index: nu
   );
 }
 
-// âââ MAIN âââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
+// â”€â”€â”€ MAIN â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 export default function Portfolio() {
   const { scrollYProgress } = useScroll();
@@ -351,12 +352,12 @@ export default function Portfolio() {
   style={{
     scaleX,
     background: "linear-gradient(90deg, #06b6d4, #8b5cf6, #10b981)",
-  } as MotionStyle}                         // â cast to MotionStyle
+  } as MotionStyle}                         // â† cast to MotionStyle
   className="fixed top-0 left-0 right-0 h-[2px] z-50 origin-left"
 />
 
      
-      {/* ââ NAV ââ */}
+      {/* â”€â”€ NAV â”€â”€ */}
       <motion.nav
         animate={{
           backgroundColor: navScrolled ? "rgba(8,12,16,0.9)" : "transparent",
@@ -400,9 +401,9 @@ export default function Portfolio() {
         </div>
       </motion.nav>
 
-      {/* ââââââââââââââââââââââââââââââââââââââââââââââââââ
+      {/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
           HERO
-      ââââââââââââââââââââââââââââââââââââââââââââââââââ */}
+      â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
       <section className="relative min-h-screen flex flex-col items-center justify-center px-6 overflow-hidden pt-16">
 
         {/* Background glows */}
@@ -415,7 +416,7 @@ export default function Portfolio() {
         <div className="relative z-10 w-full max-w-6xl mx-auto">
           <div className="grid lg:grid-cols-[1.2fr_0.8fr] gap-12 items-center">
 
-            {/* Left â main content */}
+            {/* Left â€” main content */}
             <div>
               {/* Status badge */}
               <motion.div
@@ -482,7 +483,7 @@ export default function Portfolio() {
                   className="px-6 py-3 rounded-lg font-mono text-sm font-bold tracking-wide text-black transition-all"
                   style={{ background: "linear-gradient(135deg, #06b6d4, #0891b2)" }}
                 >
-                  View Projects â
+                  View Projects â†’
                 </motion.a>
                 <a
                   href={`mailto:${ME.email}`}
@@ -520,7 +521,7 @@ export default function Portfolio() {
               </motion.div>
             </div>
 
-            {/* Right â terminal card */}
+            {/* Right â€” terminal card */}
             <motion.div
               initial={{ opacity: 0, x: 40, scale: 0.96 }}
               animate={{ opacity: 1, x: 0, scale: 1 }}
@@ -540,7 +541,7 @@ export default function Portfolio() {
                     <p className="text-white/25">$ geo --location</p>
                     <p style={{ color: "#10b981" }} className="mt-1">
                       <MapPin size={11} className="inline mr-1 mb-0.5" />
-                      {ME.location} ·
+                      {ME.location} Â· {ME.coords}
                     </p>
                   </div>
                   <div>
@@ -550,8 +551,8 @@ export default function Portfolio() {
                   <div>
                     <p className="text-white/25">$ status</p>
                     <p className="text-white/60 mt-1">
-                      <span style={{ color: "#10b981" }}>â</span> {ME.status}
-                      <span className="animate-pulse text-cyan-400 ml-1">â</span>
+                      <span style={{ color: "#10b981" }}>â—</span> {ME.status}
+                      <span className="animate-pulse text-cyan-400 ml-1">â–‹</span>
                     </p>
                   </div>
                 </div>
@@ -575,9 +576,9 @@ export default function Portfolio() {
         </motion.div>
       </section>
 
-      {/* 
+      {/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
           ABOUT / HIGHLIGHTS
-    */}
+      â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
       <section id="about" className="py-28 px-6">
         <div className="max-w-6xl mx-auto">
           <motion.div
@@ -614,9 +615,9 @@ export default function Portfolio() {
         </div>
       </section>
 
-      {/* ââââââââââââââââââââââââââââââââââââââââââââââââââ
+      {/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
           SKILLS
-      ââââââââââââââââââââââââââââââââââââââââââââââââââ */}
+      â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
       <section id="skills" className="py-28 px-6 border-y" style={{ borderColor: "rgba(6,182,212,0.08)", backgroundColor: "rgba(6,182,212,0.02)" }}>
         <div className="max-w-6xl mx-auto">
           <motion.div
@@ -685,7 +686,7 @@ export default function Portfolio() {
         </div>
       </section>
 
-      {/* âââââââââââââââââââââââââââv
+      {/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•v
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
@@ -710,7 +711,7 @@ export default function Portfolio() {
                   <div className="w-6 h-6 rounded-full flex items-center justify-center text-[10px] font-bold" style={{ backgroundColor: "rgba(139,92,246,0.2)", color: "#8b5cf6" }}>
                     {t.author[0]}
                   </div>
-                  <span className="text-xs font-mono text-white/35">â {t.author}</span>
+                  <span className="text-xs font-mono text-white/35">â€” {t.author}</span>
                 </div>
               </motion.div>
             ))}
@@ -718,9 +719,9 @@ export default function Portfolio() {
         </div>
       </section>
 
-      {/* ââââââââââââââââââââââââââââââââââââââââââââââââââ
+      {/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
           CONTACT
-      ââââââââââââââââââââââââââââââââââââââââââââââââââ */}
+      â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
       <section id="contact" className="py-28 px-6">
         <div className="max-w-6xl mx-auto text-center">
           <motion.p
@@ -729,7 +730,7 @@ export default function Portfolio() {
             viewport={{ once: true }}
             className="text-[10px] font-mono tracking-[0.35em] uppercase text-cyan-500/50 mb-8"
           >
-            Let&apos;s Talk
+            04 / Let's Talk
           </motion.p>
           <motion.h2
             initial={{ opacity: 0, y: 30 }}
@@ -748,7 +749,7 @@ export default function Portfolio() {
             viewport={{ once: true }}
             className="text-white/35 font-mono text-sm mb-10"
           >
-            I&apos;m always open to exciting opportunities and collaborations.
+            I'm always open to exciting opportunities and collaborations.
           </motion.p>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -778,9 +779,9 @@ export default function Portfolio() {
         </div>
       </section>
 
-      {/* ââââââââââââââââââââââââââââââââââââââââââââââââââ
+      {/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
           FOOTER BLOCKS
-      ââââââââââââââââââââââââââââââââââââââââââââââââââ */}
+      â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
       <section className="py-16 px-6 border-t" style={{ borderColor: "rgba(6,182,212,0.08)" }}>
         <div className="max-w-6xl mx-auto">
           <motion.p
@@ -836,10 +837,10 @@ export default function Portfolio() {
       <div className="border-t px-6 py-8" style={{ borderColor: "rgba(6,182,212,0.06)" }}>
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-xs font-mono text-white/20">
-            Â© 2025 · <span style={{ color: "#06b6d4" }}>Fortunate T. Misihairahwi</span> · Harare, Zimbabwe
+            Â© 2025 Â· <span style={{ color: "#06b6d4" }}>Fortunate T. Misihairahwi</span> Â· Harare, Zimbabwe
           </p>
           <p className="text-xs font-mono text-white/15">
-            Built with Next.js · Tailwind · Framer Motion
+            Built with Next.js Â· Tailwind Â· Framer Motion
           </p>
         </div>
       </div>
