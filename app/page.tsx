@@ -119,7 +119,7 @@ const FOOTER_LINKS = [
   { label: "Contact Me", sub: "Let's work together", href: `mailto:${ME.email}`, icon: Mail },
 ];
 
-// âââ HELPERS ââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
+// ─── HELPERS ────────────────────────────────────────────────────────────
 
 function useScrollReveal(margin: UseInViewOptions["margin"] = "-80px") {
   const ref = useRef<HTMLDivElement>(null);
@@ -157,13 +157,13 @@ function TypewriterText({ text, delay = 0 }: { text: string; delay?: number }) {
     <span ref={ref}>
       {displayed}
       {started && displayed.length < text.length && (
-        <span className="animate-pulse text-cyan-400">â</span>
+        <span className="animate-pulse text-cyan-400">▌</span>
       )}
     </span>
   );
 }
 
-// âââ COMPONENTS âââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
+// ─── COMPONENTS ─────────────────────────────────────────────────────────
 
 function TerminalWindow({
   children,
@@ -319,7 +319,7 @@ function ProjectRow({ project, index }: { project: typeof PROJECTS[0]; index: nu
   );
 }
 
-// âââ MAIN âââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
+// ─── MAIN ─────────────────────────────────────────────────────────────────
 
 export default function Portfolio() {
   const { scrollYProgress } = useScroll();
@@ -351,12 +351,12 @@ export default function Portfolio() {
   style={{
     scaleX,
     background: "linear-gradient(90deg, #06b6d4, #8b5cf6, #10b981)",
-  } as MotionStyle}                         // â cast to MotionStyle
+  } as MotionStyle}                         // ← cast to MotionStyle
   className="fixed top-0 left-0 right-0 h-[2px] z-50 origin-left"
 />
 
      
-      {/* ââ NAV ââ */}
+      {/* ── NAV ── */}
       <motion.nav
         animate={{
           backgroundColor: navScrolled ? "rgba(8,12,16,0.9)" : "transparent",
@@ -400,9 +400,6 @@ export default function Portfolio() {
         </div>
       </motion.nav>
 
-      {/* ââââââââââââââââââââââââââââââââââââââââââââââââââ
-          HERO
-      ââââââââââââââââââââââââââââââââââââââââââââââââââ */}
       <section className="relative min-h-screen flex flex-col items-center justify-center px-6 overflow-hidden pt-16">
 
         {/* Background glows */}
@@ -415,7 +412,7 @@ export default function Portfolio() {
         <div className="relative z-10 w-full max-w-6xl mx-auto">
           <div className="grid lg:grid-cols-[1.2fr_0.8fr] gap-12 items-center">
 
-            {/* Left â main content */}
+            {/* Left — main content */}
             <div>
               {/* Status badge */}
               <motion.div
@@ -453,7 +450,6 @@ export default function Portfolio() {
                 transition={{ duration: 0.5, delay: 0.5 }}
                 className="flex items-center gap-2 mb-6"
               >
-                <span className="text-cyan-400/60 font-mono text-sm">$</span>
                 <span className="text-cyan-300/80 font-mono text-sm">
                   <TypewriterText text={ME.title} delay={0.6} />
                 </span>
@@ -482,7 +478,7 @@ export default function Portfolio() {
                   className="px-6 py-3 rounded-lg font-mono text-sm font-bold tracking-wide text-black transition-all"
                   style={{ background: "linear-gradient(135deg, #06b6d4, #0891b2)" }}
                 >
-                  View Projects â
+                  View Projects →
                 </motion.a>
                 <a
                   href={`mailto:${ME.email}`}
@@ -520,7 +516,7 @@ export default function Portfolio() {
               </motion.div>
             </div>
 
-            {/* Right â terminal card */}
+            {/* Right — terminal card */}
             <motion.div
               initial={{ opacity: 0, x: 40, scale: 0.96 }}
               animate={{ opacity: 1, x: 0, scale: 1 }}
@@ -529,29 +525,29 @@ export default function Portfolio() {
               <TerminalWindow title="profile.sh">
                 <div className="space-y-4 text-xs leading-relaxed">
                   <div>
-                    <p className="text-white/25">$ cat about.txt</p>
+                    <p className="text-white/25">cat about.txt</p>
                     <p className="text-white/65 mt-1 leading-6">{ME.bio}</p>
                   </div>
                   <div>
-                    <p className="text-white/25">$ whoami</p>
+                    <p className="text-white/25">whoami</p>
                     <p style={{ color: "#06b6d4" }} className="mt-1">{ME.name}</p>
                   </div>
                   <div>
-                    <p className="text-white/25">$ geo --location</p>
+                    <p className="text-white/25">geo --location</p>
                     <p style={{ color: "#10b981" }} className="mt-1">
                       <MapPin size={11} className="inline mr-1 mb-0.5" />
                       {ME.location} ·
                     </p>
                   </div>
                   <div>
-                    <p className="text-white/25">$ university --current</p>
-                    <p style={{ color: "#8b5cf6" }} className="mt-1">Harare Institute of Technology Â· B.Sc. SE Â· 2028</p>
+                    <p className="text-white/25">university --current</p>
+                    <p style={{ color: "#8b5cf6" }} className="mt-1">Harare Institute of Technology · B.Sc. SE · 2028</p>
                   </div>
                   <div>
-                    <p className="text-white/25">$ status</p>
+                    <p className="text-white/25">status</p>
                     <p className="text-white/60 mt-1">
-                      <span style={{ color: "#10b981" }}>â</span> {ME.status}
-                      <span className="animate-pulse text-cyan-400 ml-1">â</span>
+                      <span style={{ color: "#10b981" }}>● </span> {ME.status}
+                      <span className="animate-pulse text-cyan-400 ml-1">▌</span>
                     </p>
                   </div>
                 </div>
@@ -575,9 +571,6 @@ export default function Portfolio() {
         </motion.div>
       </section>
 
-      {/* 
-          ABOUT / HIGHLIGHTS
-    */}
       <section id="about" className="py-28 px-6">
         <div className="max-w-6xl mx-auto">
           <motion.div
@@ -595,7 +588,6 @@ export default function Portfolio() {
             {HIGHLIGHTS.map((item, i) => <HighlightCard key={item.id} item={item} index={i} />)}
           </div>
 
-          {/* Mission statement */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -604,7 +596,7 @@ export default function Portfolio() {
             className="mt-10"
           >
             <TerminalWindow title="mission.txt">
-              <p className="text-white/25 text-xs mb-2">$ cat mission.txt</p>
+              <p className="text-white/25 text-xs mb-2">cat mission.txt</p>
               <p className="text-white/60 text-sm leading-7">{ME.mission}</p>
               <p className="mt-4 text-xs" style={{ color: "#06b6d4" }}>
                 Learn | Build | Innovate | Share
@@ -614,9 +606,6 @@ export default function Portfolio() {
         </div>
       </section>
 
-      {/* ââââââââââââââââââââââââââââââââââââââââââââââââââ
-          SKILLS
-      ââââââââââââââââââââââââââââââââââââââââââââââââââ */}
       <section id="skills" className="py-28 px-6 border-y" style={{ borderColor: "rgba(6,182,212,0.08)", backgroundColor: "rgba(6,182,212,0.02)" }}>
         <div className="max-w-6xl mx-auto">
           <motion.div
@@ -658,7 +647,6 @@ export default function Portfolio() {
             ))}
           </div>
 
-          {/* Craft statement */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -685,42 +673,6 @@ export default function Portfolio() {
         </div>
       </section>
 
-      {/* âââââââââââââââââââââââââââv
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            className="flex items-center gap-4 mb-12"
-          >
-            <span className="text-[10px] font-mono tracking-[0.35em] uppercase" style={{ color: "rgba(139,92,246,0.7)" }}>04 / Testimonials</span>
-            <div className="flex-1 h-px" style={{ background: "linear-gradient(90deg, rgba(139,92,246,0.3), transparent)" }} />
-          </motion.div>
-
-          <div className="grid md:grid-cols-3 gap-5">
-            {TESTIMONIALS.map((t, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.55, delay: i * 0.12 }}
-                viewport={{ once: true }}
-                className="p-6 rounded-2xl border border-white/06 bg-white/[0.02]"
-              >
-                <p className="text-white/50 text-sm leading-7 font-mono mb-5">"{t.text}"</p>
-                <div className="flex items-center gap-2">
-                  <div className="w-6 h-6 rounded-full flex items-center justify-center text-[10px] font-bold" style={{ backgroundColor: "rgba(139,92,246,0.2)", color: "#8b5cf6" }}>
-                    {t.author[0]}
-                  </div>
-                  <span className="text-xs font-mono text-white/35">â {t.author}</span>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ââââââââââââââââââââââââââââââââââââââââââââââââââ
-          CONTACT
-      ââââââââââââââââââââââââââââââââââââââââââââââââââ */}
       <section id="contact" className="py-28 px-6">
         <div className="max-w-6xl mx-auto text-center">
           <motion.p
@@ -836,7 +788,7 @@ export default function Portfolio() {
       <div className="border-t px-6 py-8" style={{ borderColor: "rgba(6,182,212,0.06)" }}>
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-xs font-mono text-white/20">
-            Â© 2025 · <span style={{ color: "#06b6d4" }}>Fortunate T. Misihairahwi</span> · Harare, Zimbabwe
+            © 2025 · <span style={{ color: "#06b6d4" }}>Fortunate T. Misihairahwi</span> · Harare, Zimbabwe
           </p>
           <p className="text-xs font-mono text-white/15">
             Built with Next.js · Tailwind · Framer Motion
