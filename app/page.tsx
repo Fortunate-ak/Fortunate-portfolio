@@ -525,26 +525,26 @@ export default function Portfolio() {
               <TerminalWindow title="profile.sh">
                 <div className="space-y-4 text-xs leading-relaxed">
                   <div>
-                    <p className="text-white/25">cat about.txt</p>
+                    <p className="text-white/25">ABOUT ME</p>
                     <p className="text-white/65 mt-1 leading-6">{ME.bio}</p>
                   </div>
                   <div>
-                    <p className="text-white/25">whoami</p>
+                    <p className="text-white/25">WHO AM I?</p>
                     <p style={{ color: "#06b6d4" }} className="mt-1">{ME.name}</p>
                   </div>
                   <div>
-                    <p className="text-white/25">geo --location</p>
+                    <p className="text-white/25">GEO LOCATION</p>
                     <p style={{ color: "#10b981" }} className="mt-1">
                       <MapPin size={11} className="inline mr-1 mb-0.5" />
                       {ME.location} ·
                     </p>
                   </div>
                   <div>
-                    <p className="text-white/25">university --current</p>
+                    <p className="text-white/25">UNIVERSITY</p>
                     <p style={{ color: "#8b5cf6" }} className="mt-1">Harare Institute of Technology · B.Sc. SE · 2028</p>
                   </div>
                   <div>
-                    <p className="text-white/25">status</p>
+                    <p className="text-white/25">STATUS</p>
                     <p className="text-white/60 mt-1">
                       <span style={{ color: "#10b981" }}>● </span> {ME.status}
                       <span className="animate-pulse text-cyan-400 ml-1">▌</span>
