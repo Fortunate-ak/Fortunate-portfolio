@@ -81,6 +81,7 @@ const PROJECTS = [
     tags: ["JavaScript", "React", "Node.js"],
     stars: "12",
     href: "https://github.com/Fortunate-ak/E-commerce-store",
+    live: "https://your-hosted-link.com/ecommerce",
     color: "#06b6d4",
   },
   {
@@ -90,6 +91,7 @@ const PROJECTS = [
     tags: ["TypeScript", "Next.js", "REST API"],
     stars: "8",
     href: "https://github.com/Fortunate-ak/quick-buy-engine",
+    live: "https://your-hosted-link.com/quickbuy",
     color: "#8b5cf6",
   },
   {
@@ -99,6 +101,7 @@ const PROJECTS = [
     tags: ["JavaScript", "Django", "Python"],
     stars: "5",
     href: "https://github.com/Fortunate-ak/myapp",
+    live: "https://your-hosted-link.com/myapp",
     color: "#f59e0b",
   },
   {
@@ -108,7 +111,18 @@ const PROJECTS = [
     tags: ["JavaScript", "HTML5", "CSS3"],
     stars: "4",
     href: "https://github.com/Fortunate-ak/mineapp",
+    live: "https://your-hosted-link.com/mineapp",
     color: "#10b981",
+  },
+  {
+    num: "05",
+    name: "URS Project",
+    desc: "A modern web application built for streamlined user resource management and intuitive user experiences.",
+    tags: ["React", "Next.js", "TypeScript"],
+    stars: "0",
+    href: "https://github.com/Fortunate-ak/urs",
+    live: "https://urs-rosy.vercel.app",
+    color: "#ec4899",
   },
 ];
 
@@ -263,12 +277,8 @@ function ProjectRow({ project, index }: { project: typeof PROJECTS[0]; index: nu
       onHoverEnd={() => setHovered(false)}
       className="group"
     >
-      <motion.a
-        href={project.href}
-        target="_blank"
-        rel="noopener noreferrer"
-        animate={{ backgroundColor: hovered ? "rgba(255,255,255,0.03)" : "transparent" }}
-        className="flex flex-col md:flex-row md:items-center gap-4 md:gap-8 py-6 px-5 rounded-2xl border border-transparent group-hover:border-white/10 transition-colors duration-300 cursor-pointer block"
+      <div
+        className="flex flex-col md:flex-row md:items-center gap-4 md:gap-8 py-6 px-5 rounded-2xl border border-transparent hover:bg-white/[0.02] transition-colors duration-300"
       >
         <span
           className="text-5xl md:text-6xl font-black select-none shrink-0 transition-colors duration-300"
@@ -283,11 +293,32 @@ function ProjectRow({ project, index }: { project: typeof PROJECTS[0]; index: nu
         <div className="flex-1 min-w-0">
           <div className="flex items-center gap-3 mb-1">
             <h3 className="text-xl font-bold text-white tracking-tight">{project.name}</h3>
-            <motion.div animate={{ x: hovered ? 4 : 0 }} transition={{ type: "spring", stiffness: 300, damping: 20 }}>
-              <ExternalLink size={14} className="text-white/20 group-hover:text-white/50 transition-colors" />
-            </motion.div>
           </div>
-          <p className="text-white/40 text-sm leading-relaxed">{project.desc}</p>
+          <p className="text-white/40 text-sm leading-relaxed mb-3">{project.desc}</p>
+          <div className="flex items-center gap-4">
+            <a 
+              href={project.href} 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="flex items-center gap-1.5 text-xs font-mono text-white/50 hover:text-white transition-colors"
+            >
+              <Github size={14} />
+              GitHub
+            </a>
+            {project.live && (
+              <a 
+                href={project.live} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex items-center gap-1.5 text-xs font-mono transition-colors"
+                style={{ color: project.color }}
+              >
+                <Globe size={14} />
+                Live Demo
+                <ExternalLink size={12} className="ml-0.5" />
+              </a>
+            )}
+          </div>
         </div>
 
         <div className="flex flex-wrap gap-2 md:max-w-[280px]">
@@ -313,7 +344,7 @@ function ProjectRow({ project, index }: { project: typeof PROJECTS[0]; index: nu
           <Star size={14} className="fill-current" />
           <span className="text-sm font-mono">{project.stars}</span>
         </div>
-      </motion.a>
+      </div>
       <div className="h-px bg-white/[0.05] mx-5" />
     </motion.div>
   );
